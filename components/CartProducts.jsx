@@ -6,7 +6,7 @@ const CartProducts = ({ searchResults }) => {
         {searchResults.map((product) => (
         <div className="py-10 w-full h-96" key={product?.id}>
         <div className=" overflow-hidden rounded shadow-lg">
-          <img src={product?.images[0]} alt="mountain" className="object-cover w-full h-48" />
+          <img src={product?.images[0]} alt="images" className="object-cover w-full  h-48" />
           <div className="px-2 py-1 text-xl font-bold text-gray-700">{product?.title}</div>
             <div className="flex flex-col">
               <p className=" px-2 py-1 text-lg text-gray-700">${product?.price}</p>

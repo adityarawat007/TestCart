@@ -15,14 +15,9 @@ const Home = () => {
   };
 
   const handleSearch = () => {
-    setCurrentPage(1);
-  };
-
-  useEffect(() => {
     // Fetching search results from the search bar API
     fetch(
-      `https://dummyjson.com/products/search?q=${searchInput}`
-      )
+      `https://dummyjson.com/products/search?q=${searchInput}`)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data.products);
@@ -31,7 +26,8 @@ const Home = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, [searchInput]);
+  };
+
 
   useEffect(() => {
     // Fetching paginated results from the pagination API
