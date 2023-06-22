@@ -4,7 +4,6 @@ import SearchBar from '@/components/SearchBar';
 import Pagination from '@/components/Pagination';
 
 
-
 const Home = () => {
   const [searchInput, setSearchInput] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -20,10 +19,10 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // Fetch search results from the search bar API
+    // Fetching search results from the search bar API
     fetch(
-      `https://dummyjson.com/products/search?q=${searchInput
-        }`)
+      `https://dummyjson.com/products/search?q=${searchInput}`
+      )
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data.products);
@@ -35,7 +34,7 @@ const Home = () => {
   }, [searchInput]);
 
   useEffect(() => {
-    // Fetch paginated results from the pagination API
+    // Fetching paginated results from the pagination API
     fetch(
       `https://dummyjson.com/products?limit=10&skip=${(currentPage - 1) * 10}`
     )
@@ -61,12 +60,15 @@ const Home = () => {
 
   return (
     <div>
+      {/* SearchBar component */}
       <SearchBar
         searchInput={searchInput}
         handleInputChange={handleInputChange}
         handleSearch={handleSearch}
       />
+      {/*  Producst listing component */}
       <CartProducts searchResults={searchResults} />
+      {/* Pagination component */}
       <Pagination
         handlePreviousPage={handlePreviousPage}
         handleNextPage={handleNextPage}
